@@ -1,0 +1,23 @@
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    /* background-color: teal;
+    width: 562px;
+    height: 512px; */
+    display: flex;
+}
+
+.colBoxes {
+    width: 35px;
+    height: 30px;
+}
+
+.rowBoxes {
+    border: solid black 1px;
+    width: 35px;
+    height: 30px;
+}
