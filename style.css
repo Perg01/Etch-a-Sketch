@@ -5,9 +5,6 @@ body {
     align-items: center;
 }
 .container {
-    /* background-color: teal;
-    width: 562px;
-    height: 512px; */
     display: flex;
 }
 
@@ -20,4 +17,11 @@ body {
     border: solid black 1px;
     width: 35px;
     height: 30px;
+}
+.rowBoxes:hover {
+    background-color: rgb(248, 214, 101);
+    transition: background-color 0.3s ease;
+}
+.rowBoxes:active {
+    background-color: black;
 }
