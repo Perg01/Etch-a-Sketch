@@ -4,6 +4,7 @@ body {
     justify-content: center;
     align-items: center;
 }
+
 .container {
     display: flex;
 }
@@ -18,10 +19,12 @@ body {
     width: 35px;
     height: 30px;
 }
-.rowBoxes:hover {
+
+/* .rowBoxes:hover {
     background-color: rgb(248, 214, 101);
     transition: background-color 0.3s ease;
-}
-.rowBoxes:active {
+} */
+
+/* .rowBoxes:active {
     background-color: black;
-}
+} */
