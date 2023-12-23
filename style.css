@@ -7,27 +7,28 @@ body {
 
 .container {
     display: flex;
-    max-width: 960px;
+    width: 500px;
+    height: 500px;
     justify-content: center;
     align-items: center;
-}
+    margin: 10px;
 
-.colBoxes {
-    width: 35px;
-    height: 30px;
-}
-
-.rowBoxes {
+    flex-wrap: wrap;
     border: solid black 1px;
-    width: 35px;
-    height: 30px;
 }
 
-/* .rowBoxes:hover {
+.smallBoxes {
+    /* border: solid black 1px; */
+    box-sizing: border-box;
+    width: 30px;
+    height: 30px;
+    outline: none;
+}
+
+
+
+
+.smallBoxes:hover {
     background-color: rgb(248, 214, 101);
     transition: background-color 0.3s ease;
-} */
-
-/* .rowBoxes:active {
-    background-color: black;
-} */
+}

@@ -1,55 +1,78 @@
-let row = 16;
-let column = 16;
-const grid = document.querySelector('.container');
-let sizeBtn = document.querySelector('.grid-btn');
+let dimensions = 16;
+let isMouseDown = false;
+let eraserON = false;
+let grid = document.querySelector('.container');
+const sizeBtn = document.querySelector('.grid-btn');
+const resetColorBtn = document.querySelector('.resetcolorbtn');
+let eraserBtn = document.querySelector('.eraser');
 
-function color(e) {
-    e.target.setAttribute('style', 'background-color: black;');
+function appendBoxes(dimensions) {
+    const divsDimensions = 500 / dimensions;
+
+    for (let i = 0; i < dimensions * dimensions; i++) {
+        let smallDivs = document.createElement('div');
+        smallDivs.classList.add('smallBoxes');
+        smallDivs.style.width = `${divsDimensions}px`;
+        smallDivs.style.height = `${divsDimensions}px`;
+        smallDivs.addEventListener('click', color);
+        grid.appendChild(smallDivs);
+    }
+
 }
 
-function gridSizing() {
+function color(e) {
+    if (isMouseDown || e.type === 'mousedown') {
+        if (eraserON) {
+            e.target.style.backgroundColor = 'white';
+            // e.target.style.borderColor = 'transparent';
+        } else {
+            const borderWidth = window.getComputedStyle(e.target).borderWidth;
+            e.target.style.backgroundColor = 'black';
+            e.target.style.borderColor = 'black';
+            e.target.style.borderWidth = borderWidth;
+        }
+    }
+}
+
+function toggleEraser() {
+    eraserON = !eraserON;
+}
+
+function resetColor() {
+    let selectSmallDivs = document.querySelectorAll('.smallBoxes');
+    selectSmallDivs.forEach(div => {
+        div.style.backgroundColor = 'white';
+    });
+}
+
+function resetGrid() {
+    grid.innerHTML = '';
+}
+
+function sizeButton() {
     let size = prompt("Set a custom grid size(1 <= size <= 100):", "16");
     if (size >= 1 && size <= 100) {
         resetColor();
         resetGrid();
-        row = size;
-        column = size;
-        appendBoxes(row, column);
+        dimensions = size;
+        appendBoxes(dimensions);
     }
     else {
         alert("Sorry, grid size must be between 1 and 100. Please try again.")
     }
 }
 
-function resetColor() {
-    let selectAllDivs = document.querySelectorAll('.rowBoxes');
-    selectAllDivs.forEach(div => {
-        div.setAttribute('style', 'background-color: white;');
-    });
-}
+grid.addEventListener('mousedown', function (e) {
+    isMouseDown = true;
+    color(e);
+});
 
-function resetGrid() {
-    let selectAllDivs = document.querySelectorAll('.rowBoxes');
-    selectAllDivs.forEach(div => {
-        div.classList.remove('rowBoxes');
-    });
-}
+grid.addEventListener('mouseup', function () {
+    isMouseDown = false;
+});
 
-function appendBoxes(row, column) {
-    for (let i = 0; i < column; i++) {
-        let colDivs = document.createElement('div');
-        colDivs.classList.add('colBoxes');
-        for (let j = 0; j < row; j++) {
-            let rowDivs = document.createElement('div');
-            rowDivs.classList.add('rowBoxes');
-            rowDivs.addEventListener('click', color);
-            colDivs.appendChild(rowDivs);
-        }
-        grid.appendChild(colDivs);
-    }
-}
-
-sizeBtn.addEventListener('click', gridSizing);
-
-appendBoxes();
-
+eraserBtn.addEventListener('click', toggleEraser);
+grid.addEventListener('mouseover', color);
+resetColorBtn.addEventListener('click', resetColor);
+sizeBtn.addEventListener('click', sizeButton);
+appendBoxes(dimensions);
