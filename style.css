@@ -3,6 +3,25 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 0;
+    padding: 0;
+    background-color: #2d3b5a;
+}
+
+.frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    width: 700px;
+    width: 700px;
+    background-color: rgb(143, 23, 23);
+    border-radius: 50px;
+    border: solid rgb(143, 23, 23) 7px;
+    box-shadow: 0px 0px 5px 1px rgb(88, 14, 14);
+    margin-bottom: 50px;
+
 }
 
 .container {
@@ -12,9 +31,14 @@ body {
     justify-content: center;
     align-items: center;
     margin: 10px;
-
     flex-wrap: wrap;
-    border: solid black 1px;
+    border: solid rgb(165, 27, 27) 5px;
+
+    border-radius: 20px;
+    background-color: #9C9B8B;
+    margin: 50px;
+    margin-bottom: 0px;
+    box-shadow: 0px 0px 5px 4px rgb(88, 14, 14);
 }
 
 .smallBoxes {
@@ -25,10 +49,52 @@ body {
     outline: none;
 }
 
+.btn-container {
+    display: flex;
+    gap: 40px;
+    padding: 30px;
+}
 
+.btn-container>button {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    color: #d1d0bb;
 
+    display: block;
+    padding: 25px 20px;
+    border-radius: 50%;
+    border: 2px solid #bbbaa7;
+    box-shadow: 3px 3px 3px #6d6c62;
+    background: #9C9B8B;
+}
 
-.smallBoxes:hover {
-    background-color: rgb(248, 214, 101);
-    transition: background-color 0.3s ease;
+.btn-container button.active {
+    box-shadow: 0 1px 10px 0 rgb(255, 255, 255);
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(153, 0, 0);
+    font-weight: 700;
+    color: #d1d0bb;
+    font-size: x-large;
+    padding: 10px;
+}
+
+footer>a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1 {
+    color: #d1d0bb;
+}
+
+.github-img {
+    width: 40px;
+    height: 40px;
 }
